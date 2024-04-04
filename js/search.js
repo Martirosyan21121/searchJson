@@ -8,7 +8,7 @@ $(document).ready(function(){
         let generateLetter = generateCharMap()
 
 
-        $.getJSON('json/test.json', function(data) {
+        $.getJSON('json/data.json', function(data) {
             $.each(data, function(key, value){
 
                 let armenianSearchInput = '';
