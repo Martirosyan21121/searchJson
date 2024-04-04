@@ -11,8 +11,7 @@ $(document).ready(function () {
             $.each(data, function (key, value) {
 
                 let armenianSearchInput = convertToArmenian(searchInput.toLowerCase());
-
-                console.log(armenianSearchInput, 'armenianSearchInput')
+                    console.log(armenianSearchInput, 'armenianSearchInput')
                 if (value.name.search(ignoreCase, unicode) !== -1 ||
                     value.name.toLowerCase().includes(armenianSearchInput.toLowerCase())) {
 
@@ -21,6 +20,7 @@ $(document).ready(function () {
                 }
             });
         });
+
         function convertToArmenian(input) {
             let armenianString = ''
             let i = 0;
@@ -29,11 +29,12 @@ $(document).ready(function () {
                 if (i < input.length - 1 && generateLetter[input.substr(i, 2)]) {
                     armenianString += generateLetter[input.substr(i, 2)];
                     i += 2;
-                } else {
-                        const englishLetter = input[i].toLowerCase();
-                        armenianString += generateLetter[englishLetter] || input[i];
-                        console.log(armenianString, 'Armenian letter')
-                        i++;
+                }
+                else {
+                    const englishLetter = input[i].toLowerCase();
+                    armenianString += generateLetter[englishLetter] || input[i];
+                    console.log(armenianString, 'Armenian letter')
+                    i++;
                 }
             }
             return armenianString;
@@ -42,10 +43,11 @@ $(document).ready(function () {
 
     function generateCharMap() {
         const englishLetters = ['a', 'b', 'c', 'd', 'e', 'f',
-            'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'g', 'r', 's', 't', 'v', 'x', 'w', 'y', 'z', 'u', 'ch', 'sh', 'ev'];
+            'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'g', 's', 't', 'v', 'x', 'w', 'y', 'z', 'u', 'ch', 'sh', 'ev', 'dz', 'r', 'gh'];
         const armenianLetters = ['ա', 'բ', 'ց', 'դ', 'ե', 'ֆ', 'գ', 'հ', 'ի', 'ջ',
-            'կ', 'լ', 'մ', 'ն', 'օ', 'պ', 'գ', ['ռ' | 'ր'], 'ս', 'տ', 'վ', 'խ', 'ո', 'յ', 'զ', 'ու', 'չ', 'շ', 'և'];
+            'կ', 'լ', 'մ', 'ն', 'օ', 'պ', 'գ', 'ս', 'տ', 'վ', 'խ', 'ո', 'յ', 'զ', 'ու', 'չ', 'շ', 'և', 'ձ', 'ռր', 'ղ'];
         const charMap = {};
+        console.log(charMap, 'chatMap')
 
         for (let i = 0; i < englishLetters.length; i++) {
             const englishLetter = englishLetters[i];
