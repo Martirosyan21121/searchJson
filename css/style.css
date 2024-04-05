@@ -1,7 +1,7 @@
 #result {
     position: absolute;
     width: 100%;
-    max-width:870px;
+    max-width:600px;
     cursor: pointer;
     overflow-y: auto;
     max-height: 400px;

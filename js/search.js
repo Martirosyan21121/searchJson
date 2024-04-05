@@ -8,6 +8,7 @@ $(document).ready(function () {
         let generateLetter = generateCharMap()
 
         $.getJSON('json/data.json', function (data) {
+
             $.each(data, function (key, value) {
                 let armenianSearchInput = convertToArmenian(searchInput.toLowerCase());
                 console.log(armenianSearchInput, 'armenianSearchInput')
@@ -29,12 +30,7 @@ $(document).ready(function () {
                     i += 2;
                 } else {
                     const englishLetter = input[i].toLowerCase();
-                    if (englishLetter === 'r') {
-                        armenianString += 'ռ'.toLowerCase()
-                        console.log(armenianString, 'r change to ռ ')
-                    } else {
-                        armenianString += generateLetter[englishLetter] || input[i];
-                    }
+                    armenianString += generateLetter[englishLetter] || input[i];
                     console.log(armenianString, 'Armenian letter')
                     i++;
                 }
@@ -48,12 +44,12 @@ $(document).ready(function () {
             'g', 'h', 'i', 'j', 'k', 'l',
             'm', 'n', 'o', 'p', 'g', 's',
             't', 'v', 'x', 'w', 'y', 'z',
-            'u', 'ch', 'sh', 'ev', 'dz', 'r', 'gh'];
+            'u', 'ch', 'sh', 'ev', 'dz', 'gh'];
         const armenianLetters = ['ա', 'բ', 'ց', 'դ', 'ե', 'ֆ',
             'գ', 'հ', 'ի', 'ջ', 'կ', 'լ',
             'մ', 'ն', 'օ', 'պ', 'գ', 'ս',
             'տ', 'վ', 'խ', 'ո', 'յ', 'զ',
-            'ու', 'չ', 'շ', 'և', 'ձ', 'ռր', 'ղ'];
+            'ու', 'չ', 'շ', 'և', 'ձ', 'ղ'];
         const charMap = {};
         console.log(charMap, 'chatMap')
 
