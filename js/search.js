@@ -15,15 +15,15 @@ $(document).ready(function () {
                 let englishSearchInput = convertToEnglish(searchInput.toLowerCase())
                 console.log(armenianSearchInput, 'armenianSearchInput')
                 console.log(englishSearchInput, 'englishSearchInput')
-                if (value.name.search(ignoreCase, unicode) !== -1 ||
-                    value.name.toLowerCase().includes(armenianSearchInput.toLowerCase())
-                    || value.name.toLowerCase().includes(englishSearchInput.toLowerCase())) {
-
+                if (value.name.search(ignoreCase, unicode) !== -1) {
+                    $('#result').append('<li class="list-group-item link-class">' + ' ID -> ' + value.id + ' | Name -> ' + value.name + '</li>');
+                } else if (value.name.toLowerCase().includes(armenianSearchInput.toLowerCase())){
+                    $('#result').append('<li class="list-group-item link-class">' + ' ID -> ' + value.id + ' | Name -> ' + value.name + '</li>');
+                } else if (value.name.toLowerCase().includes(englishSearchInput.toLowerCase())){
                     $('#result').append('<li class="list-group-item link-class">' + ' ID -> ' + value.id + ' | Name -> ' + value.name + '</li>');
                 }
             });
         });
-
         function convertToArmenian(input) {
             let armenianString = ''
             let i = 0;
@@ -41,7 +41,6 @@ $(document).ready(function () {
             }
             return armenianString;
         }
-
         function convertToEnglish(input) {
             let englishString = ''
             let i = 0;
@@ -55,8 +54,27 @@ $(document).ready(function () {
             return englishString;
         }
     });
-
     function generateCharMap() {
+        const englishLetters = ['a', 'b', 'c', 'd', 'e', 'f',
+            'g', 'h', 'i', 'j', 'k', 'l',
+            'm', 'n', 'o', 'p', 'g', 's',
+            't', 'v', 'x', 'w', 'y', 'z',
+            'u', 'ch', 'sh', 'ev', 'dz', 'gh', 'r', 'r'];
+        const armenianLetters = ['ա', 'բ', 'ց', 'դ', 'ե', 'ֆ',
+            'գ', 'հ', 'ի', 'ջ', 'կ', 'լ',
+            'մ', 'ն', 'օ', 'պ', 'գ', 'ս',
+            'տ', 'վ', 'խ', 'ո', 'յ', 'զ',
+            'ու', 'չ', 'շ', 'և', 'ձ', 'ղ', 'ռ', 'ր'];
+        const charMap = {};
+        console.log(charMap, 'chatMap')
+
+        for (let i = 0; i < englishLetters.length; i++) {
+            const englishLetter = englishLetters[i];
+            charMap[englishLetter] = armenianLetters[i];
+        }
+        return charMap;
+    }
+    function generateCharMap2() {
         const englishLetters = ['a', 'b', 'c', 'd', 'e', 'f',
             'g', 'h', 'i', 'j', 'k', 'l',
             'm', 'n', 'o', 'p', 'g', 's',
@@ -67,27 +85,6 @@ $(document).ready(function () {
             'մ', 'ն', 'օ', 'պ', 'գ', 'ս',
             'տ', 'վ', 'խ', 'ո', 'յ', 'զ',
             'ու', 'չ', 'շ', 'և', 'ձ', 'ղ', 'ռ'];
-        const charMap = {};
-        console.log(charMap, 'chatMap')
-
-        for (let i = 0; i < englishLetters.length; i++) {
-            const englishLetter = englishLetters[i];
-            charMap[englishLetter] = armenianLetters[i];
-        }
-        return charMap;
-    }
-
-    function generateCharMap2() {
-        const englishLetters = ['a', 'b', 'c', 'd', 'e', 'f',
-            'g', 'h', 'i', 'j', 'k', 'l',
-            'm', 'n', 'o', 'p', 'g', 's',
-            't', 'v', 'x', 'w', 'y', 'z',
-            'u', 'ch', 'sh', 'ev', 'dz', 'gh'];
-        const armenianLetters = ['ա', 'բ', 'ց', 'դ', 'ե', 'ֆ',
-            'գ', 'հ', 'ի', 'ջ', 'կ', 'լ',
-            'մ', 'ն', 'օ', 'պ', 'գ', 'ս',
-            'տ', 'վ', 'խ', 'ո', 'յ', 'զ',
-            'ու', 'չ', 'շ', 'և', 'ձ', 'ղ'];
         const charMap = {};
         console.log(charMap, 'chatMap')
 
