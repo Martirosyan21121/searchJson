@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data</title>
+</head>
+<body>
+<h1 style="text-align: center; color: darkgreen">Data</h1>
+<h2 id="idDisplay" style="color: darkgreen"></h2>
+<h2 id="nameDisplay" style="color: darkgreen"></h2>
+
+<script>
+    // Function to get URL query parameters
+    function getQueryParam(name) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name);
+    }
+
+    // Get the ID and name from the URL query parameters
+    const id = getQueryParam('id');
+    const name = getQueryParam('name');
+
+    // Display the ID and name in the <h2> tag
+    document.getElementById('idDisplay').textContent = `ID: ${id}`;
+    document.getElementById('nameDisplay').textContent = `Name: ${encodeURIComponent(name)}`;
+</script>
+</body>
+</html>
