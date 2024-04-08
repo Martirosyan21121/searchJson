@@ -67,10 +67,10 @@ $(document).ready(function () {
 
                     case 'c':
                         if (input[i + 1] && input[i + 1].toLowerCase() === 'h') {
-                            armenianString += (Math.random() > 0.5) ? 'չ' : 'ճ';
+                            armenianString += (Math.random() > 0.5) ? 'չ' : 'ճ'.toLowerCase();
                             i++;
                         } else {
-                            armenianString += 'ց'
+                            armenianString += Math.random() > 0.5 ? 'ց' : 'ծ'.toLowerCase()
                         }
                         break;
                     default:
