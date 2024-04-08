@@ -24,6 +24,10 @@ $(document).ready(function () {
         function convertToArmenian(input) {
             let armenianString = '';
             for (let i = 0; i < input.length; i++) {
+
+
+
+
                 switch (input[i].toLowerCase()) {
                     case 'r':
                         armenianString += Math.random() > 0.5 ? 'ր' : 'ռ'.toLowerCase();
@@ -50,11 +54,11 @@ $(document).ready(function () {
                         break
 
                     default:
+                        const englishLetter = input[i].toLowerCase()
                         if (i < input.length - 1 && generateLetter[input.substr(i, 2)]) {
                             armenianString += generateLetter[input.substr(i, 2)];
                             i++;
                         } else {
-                            const englishLetter = input[i].toLowerCase();
                             armenianString += generateLetter[englishLetter] || input[i];
                         }
                         break;
@@ -68,11 +72,11 @@ $(document).ready(function () {
         const englishLetters = ['a', 'b', 'c', 'd', 'f',
             'g', 'h', 'i', 'k', 'l',
             'm', 'n', 'o', 'g', 's', 'v', 'w', 'y', 'z',
-            'u', 'sh', 'ev', 'dz', 'gh'];
+            'u', 'ch', 'sh', 'ev', 'dz', 'gh'];
         const armenianLetters = ['ա', 'բ', 'ց', 'դ', 'ֆ',
             'գ', 'հ', 'ի', 'կ', 'լ',
             'մ', 'ն', 'օ', 'գ', 'ս', 'վ', 'ո', 'յ', 'զ',
-            'ու', 'շ', 'և', 'ձ', 'ղ'];
+            'ու', 'չ', 'շ', 'և', 'ձ', 'ղ'];
         const charMap = {};
         console.log(charMap, 'chatMap')
 
