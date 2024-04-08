@@ -33,7 +33,7 @@ $(document).ready(function () {
                 let name = $(this).data('name')
                 encodeURIComponent(name)
                 alert(id)
-                window.location.href = 'data.html?id=' + id;
+                window.location.href = 'data.html?id=' + encodeURIComponent(id) + '&name=' + encodeURIComponent(name);
             })
         });
 
