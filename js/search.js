@@ -61,6 +61,10 @@ $(document).ready(function () {
                         armenianString += Math.random() > 0.5 ? 'ժ' : 'ջ'.toLowerCase();
                         break
 
+                    case 'o':
+                        armenianString += Math.random() > 0.5 ? 'օ' : 'ո'.toLowerCase();
+                        break
+
                     case 'e':
                         armenianString += Math.random() > 0.5 ? 'ե' : 'է'.toLowerCase();
                         break
@@ -91,11 +95,11 @@ $(document).ready(function () {
     function generateCharMap() {
         const englishLetters = ['a', 'b', 'd', 'f',
             'g', 'h', 'i', 'k', 'l',
-            'm', 'n', 'o', 'g', 's', 'v', 'w', 'y', 'z',
+            'm', 'n', 'g', 's', 'v', 'y', 'z',
             'u', 'sh', 'ev', 'dz', 'gh'];
         const armenianLetters = ['ա', 'բ', 'դ', 'ֆ',
             'գ', 'հ', 'ի', 'կ', 'լ',
-            'մ', 'ն', 'օ', 'գ', 'ս', 'վ', 'ո', 'յ', 'զ',
+            'մ', 'ն', 'գ', 'ս', 'վ', 'յ', 'զ',
             'ու', 'շ', 'և', 'ձ', 'ղ'];
         const charMap = {};
         for (let i = 0; i < englishLetters.length; i++) {
