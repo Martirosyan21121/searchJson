@@ -64,10 +64,15 @@ $(document).ready(function () {
                     case 'e':
                         armenianString += Math.random() > 0.5 ? 'ե' : 'է'.toLowerCase();
                         break
-                    case 'c':
-                        armenianString += Math.random() > 0.5 ? 'ց' : 'ծ'.toLowerCase();
-                        break
 
+                    case 'c':
+                        if (input[i + 1] && input[i + 1].toLowerCase() === 'h') {
+                            armenianString += (Math.random() > 0.5) ? 'չ' : 'ճ';
+                            i++;
+                        } else {
+                            armenianString += 'ց'
+                        }
+                        break;
                     default:
                         const englishLetter = input[i].toLowerCase()
                         if (i < input.length - 1 && generateLetter[input.substr(i, 2)]) {
@@ -87,11 +92,11 @@ $(document).ready(function () {
         const englishLetters = ['a', 'b', 'd', 'f',
             'g', 'h', 'i', 'k', 'l',
             'm', 'n', 'o', 'g', 's', 'v', 'w', 'y', 'z',
-            'u', 'sh', 'ev', 'dz', 'gh', 'ch'];
+            'u', 'sh', 'ev', 'dz', 'gh'];
         const armenianLetters = ['ա', 'բ', 'դ', 'ֆ',
             'գ', 'հ', 'ի', 'կ', 'լ',
             'մ', 'ն', 'օ', 'գ', 'ս', 'վ', 'ո', 'յ', 'զ',
-            'ու', 'շ', 'և', 'ձ', 'ղ', 'չ'];
+            'ու', 'շ', 'և', 'ձ', 'ղ'];
         const charMap = {};
         for (let i = 0; i < englishLetters.length; i++) {
             const englishLetter = englishLetters[i];
