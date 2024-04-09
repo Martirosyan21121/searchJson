@@ -10,7 +10,7 @@ $(document).ready(function () {
         $.getJSON('json/data.json', function (data) {
             $.each(data, function (key, value) {
 
-                let armenianSearchInput = convertToArmenian(searchInput.toLowerCase());
+                let armenianSearchInput = convertToArmenian(searchInput);
                 console.log(armenianSearchInput, 'armenianSearchInput')
                 if (value.name.search(ignoreCase, unicode) !== -1) {
                     let button = $('<button class="link-class">').addClass('list-group-item list-group-item-action').text('ID -> ' + value.id + ' | Name -> ' + value.name);
@@ -32,8 +32,10 @@ $(document).ready(function () {
             $('.link-class').click(function () {
                 let id = $(this).data('id')
                 let name = $(this).data('name')
+                encodeURIComponent(id)
+                encodeURIComponent(name)
                 alert(name)
-                window.location.href = 'data.html?id=' + encodeURIComponent(id) + '&name=' + encodeURIComponent(name);
+                window.location.href = 'data.html?id=' + id + '&name=' + name;
             })
         });
 
@@ -83,7 +85,7 @@ $(document).ready(function () {
                             armenianString += generateLetter[input.substr(i, 2)];
                             i++;
                         } else {
-                            armenianString += generateLetter[englishLetter].toLowerCase() || input[i];
+                            armenianString += generateLetter[englishLetter] || input[i];
                         }
                         break;
                 }
