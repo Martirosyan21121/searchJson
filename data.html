@@ -3,24 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Data</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body style="background-color: burlywood">
 <h1 style="text-align: center; color: darkgreen">Single Page</h1>
 <h2 id="idDisplay" style="color: darkgreen; text-align: center"></h2>
 <h2 id="nameDisplay" style="color: darkgreen; text-align: center"></h2>
 
-<script>
-    function getQueryParam(name) {
-        const urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get(name);
-    }
-    const id = getQueryParam('id');
-    const name = getQueryParam('name');
+<button class="button-5" role="button" id="back"> Go Back </button >
 
-    document.getElementById('idDisplay').textContent = `ID: ${id}`;
-    document.getElementById('nameDisplay').textContent = `Name: ${name}`;
-
-</script>
-
+<script src="js/data.js"></script>
 </body>
 </html>
