@@ -13,26 +13,26 @@ $(document).ready(function () {
                 let armenianSearchInput = convertToArmenian(searchInput.toLowerCase());
                 console.log(armenianSearchInput, 'armenianSearchInput')
                 if (value.name.search(ignoreCase, unicode) !== -1) {
-                    let $button = $('<button class="link-class">').addClass('list-group-item list-group-item-action').text('ID -> ' + value.id + ' | Name -> ' + value.name);
+                    let button = $('<button class="link-class">').addClass('list-group-item list-group-item-action').text('ID -> ' + value.id + ' | Name -> ' + value.name);
 
-                    $button.data('id', value.id)
-                    $button.data('name', value.name)
+                    button.data('id', value.id)
+                    button.data('name', value.name)
 
-                    $('#result').append($button);
+                    $('#result').append(button);
                 } else if (value.name.toLowerCase().includes(armenianSearchInput.toLowerCase())) {
-                    let $button = $('<button class="link-class">').addClass('list-group-item list-group-item-action').text('ID -> ' + value.id + ' | Name -> ' + value.name);
+                    let button = $('<button class="link-class">').addClass('list-group-item list-group-item-action').text('ID -> ' + value.id + ' | Name -> ' + value.name);
 
-                    $button.data('id', value.id)
-                    $button.data('name', value.name)
+                    button.data('id', value.id)
+                    button.data('name', value.name)
 
-                    $('#result').append($button);
+                    $('#result').append(button);
                 }
             });
+
             $('.link-class').click(function () {
                 let id = $(this).data('id')
                 let name = $(this).data('name')
-                encodeURIComponent(name)
-                alert(id)
+                alert(name)
                 window.location.href = 'data.html?id=' + encodeURIComponent(id) + '&name=' + encodeURIComponent(name);
             })
         });
@@ -42,39 +42,39 @@ $(document).ready(function () {
             for (let i = 0; i < input.length; i++) {
                 switch (input[i].toLowerCase()) {
                     case 'r':
-                        armenianString += Math.random() > 0.5 ? 'ր' : 'ռ'.toLowerCase();
+                        armenianString += Math.random() > 0.5 ? 'ր'.toLowerCase() : 'ռ'.toLowerCase();
                         break;
 
                     case 't':
-                        armenianString += Math.random() > 0.5 ? 'տ' : 'թ'.toLowerCase();
+                        armenianString += Math.random() > 0.5 ? 'տ'.toLowerCase() : 'թ'.toLowerCase();
                         break
 
                     case 'x':
-                        armenianString += Math.random() > 0.5 ? 'խ' : 'ղ'.toLowerCase();
+                        armenianString += Math.random() > 0.5 ? 'խ'.toLowerCase() : 'ղ'.toLowerCase();
                         break
 
                     case 'p':
-                        armenianString += Math.random() > 0.5 ? 'պ' : 'փ'.toLowerCase();
+                        armenianString += Math.random() > 0.5 ? 'պ'.toLowerCase() : 'փ'.toLowerCase();
                         break
 
                     case 'j':
-                        armenianString += Math.random() > 0.5 ? 'ժ' : 'ջ'.toLowerCase();
+                        armenianString += Math.random() > 0.5 ? 'ժ'.toLowerCase() : 'ջ'.toLowerCase();
                         break
 
                     case 'o':
-                        armenianString += Math.random() > 0.5 ? 'օ' : 'ո'.toLowerCase();
+                        armenianString += Math.random() > 0.5 ? 'օ'.toLowerCase() : 'ո'.toLowerCase();
                         break
 
                     case 'e':
-                        armenianString += Math.random() > 0.5 ? 'ե' : 'է'.toLowerCase();
+                        armenianString += Math.random() > 0.5 ? 'ե'.toLowerCase() : 'է'.toLowerCase();
                         break
 
                     case 'c':
                         if (input[i + 1] && input[i + 1].toLowerCase() === 'h') {
-                            armenianString += (Math.random() > 0.5) ? 'չ' : 'ճ'.toLowerCase();
+                            armenianString += (Math.random() > 0.5) ? 'չ'.toLowerCase() : 'ճ'.toLowerCase();
                             i++;
                         } else {
-                            armenianString += Math.random() > 0.5 ? 'ց' : 'ծ'.toLowerCase()
+                            armenianString += Math.random() > 0.5 ? 'ց'.toLowerCase() : 'ծ'.toLowerCase()
                         }
                         break;
                     default:
@@ -83,7 +83,7 @@ $(document).ready(function () {
                             armenianString += generateLetter[input.substr(i, 2)];
                             i++;
                         } else {
-                            armenianString += generateLetter[englishLetter] || input[i];
+                            armenianString += generateLetter[englishLetter].toLowerCase() || input[i];
                         }
                         break;
                 }
@@ -96,11 +96,11 @@ $(document).ready(function () {
         const englishLetters = ['a', 'b', 'd', 'f',
             'g', 'h', 'i', 'k', 'l',
             'm', 'n', 'g', 's', 'v', 'y', 'z',
-            'u', 'sh', 'ev', 'dz', 'gh'];
+            'u', 'sh', 'ev', 'dz', 'gh', 'w'];
         const armenianLetters = ['ա', 'բ', 'դ', 'ֆ',
             'գ', 'հ', 'ի', 'կ', 'լ',
             'մ', 'ն', 'գ', 'ս', 'վ', 'յ', 'զ',
-            'ու', 'շ', 'և', 'ձ', 'ղ'];
+            'ու', 'շ', 'և', 'ձ', 'ղ', 'ո'];
         const charMap = {};
         for (let i = 0; i < englishLetters.length; i++) {
             const englishLetter = englishLetters[i];
