@@ -1,3 +1,10 @@
+body {
+    background-image: url('img/backImg.jpg'); /* Replace 'path/to/your/image.jpg' with the path to your image */
+    background-size: cover; /* This makes sure the background image covers the entire element */
+    /* You can adjust background size using width and height properties */
+    /* background-size: 100% 100%; */ /* Example: Make the background image cover the entire element */
+    /* background-size: contain; */ /* Example: Make the background image fit inside the element without stretching */
+}
 #result {
     position: absolute;
     width: 100%;
